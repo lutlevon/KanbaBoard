@@ -40,7 +40,7 @@ export class KanbanBoard implements OnInit {
   
   addTask(value){
     if(value==null) return;
-    if(this.tasks.map(function (e) {return e.name}).includes(value)){
+    if(this.tasks.map((e) => e.name).includes(value)){
       this.taskName = null;
       return;
     } 
@@ -51,7 +51,7 @@ export class KanbanBoard implements OnInit {
   }
 
   moveTask(name:string, direction:string ){
-    let pos = this.tasks.map(function (e) {return e.name}).indexOf(name);
+    let pos = this.tasks.map((e) => e.name).indexOf(name);
     switch(direction){
       case'r':
         this.tasks[pos].stage = this.tasks[pos].stage + 1;
@@ -64,7 +64,7 @@ export class KanbanBoard implements OnInit {
   }
 
   deleteTask(name:string){
-    let pos = this.tasks.map(function (e) {return e.name}).indexOf(name);
+    let pos = this.tasks.map((e) => e.name).indexOf(name);
     this.tasks.splice(pos,1);
     this.configureTasksForRendering();
   }
